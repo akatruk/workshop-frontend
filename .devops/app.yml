@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: workshop-frontend
-          image: ghcr.io/akatruk/workshop-frontend:f7bd7ba85b8ea8be63abaf3ddedfc1fbd24fd7a7
+          image: ghcr.io/akatruk/workshop-frontend:e979c14a40d71d97719c7ea5d2f7314f23eaefcc
           ports:
             - containerPort: 3000  
 ---
