@@ -1,0 +1,23 @@
+name: CI/CD Pipeline on main branch
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:      
+  build-and-push-production:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v3.0.0
+
+      - name: Build Docker image
+        run: |
+          docker build -t ghcr.io/${{ github.repository_owner }}/workshop-frontend:$GITHUB_SHA -f devops/.docker/dockerfile .
+          docker push ghcr.io/${{ github.repository_owner }}/workshop-frontend:$GITHUB_SHA
+
