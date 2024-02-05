@@ -18,6 +18,6 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ghcr.io/${{ github.repository_owner }}/workshop-frontend:$GITHUB_SHA -f devops/.docker/Dockerfile .
+          docker build -t ghcr.io/${{ github.repository_owner }}/workshop-frontend:$GITHUB_SHA -f .devops/Dockerfile .
           docker push ghcr.io/${{ github.repository_owner }}/workshop-frontend:$GITHUB_SHA
 
